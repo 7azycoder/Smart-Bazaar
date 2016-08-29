@@ -1,0 +1,98 @@
+
+<!-- header -->
+<div class="header">
+  <div class="w3ls-header"><!--header-one-->
+    <div class="w3ls-header-left">
+      <p><a href="/offers">UPTO $50 OFF ON LAPTOPS | USE COUPON CODE APPLY </a></p>
+    </div>
+    <div class="w3ls-header-right">
+      <ul>
+        <li class="dropdown head-dpdn">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i> My Account<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <% if(!user) { %>
+            <li><a href="/login">Login </a></li>
+            <li><a href="/signup">Sign Up</a></li>
+            <% } else { %>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/logout">Logout</a></li>
+              <% } %>
+          </ul>
+        </li>
+
+        <li class="dropdown head-dpdn">
+          <a href="/contact" class="dropdown-toggle"><i class="fa fa-map-marker" aria-hidden="true"></i> Store Finder</a>
+        </li>
+        <li class="dropdown head-dpdn">
+          <a href="/card" class="dropdown-toggle"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> Credit Card</a>
+        </li>
+        <li class="dropdown head-dpdn">
+          <a href="/faq" class="dropdown-toggle"><i class="fa fa-question-circle" aria-hidden="true"></i> Help</a>
+        </li>
+      </ul>
+    </div>
+    <div class="clearfix"> </div>
+  </div>
+  <div class="header-two"><!-- header-two -->
+    <div class="container">
+      <div class="header-logo">
+        <h1><a href="/"><span>S</span>mart <i>Bazaar</i></a></h1>
+        <h6>Your stores. Your place.</h6>
+      </div>
+
+      <div class="header-search">
+        <form method="post" action="/search">
+          <input type="search" name="q" placeholder="Search for a Product..." required="">
+          <button type="submit" class="btn btn-default" aria-label="Left Align">
+            <i class="fa fa-search" aria-hidden="true"> </i>
+          </button>
+        </form>
+      </div>
+      <div class="header-cart">
+        <div class="my-account">
+          <a href="/contact"><i class="fa fa-map-marker" aria-hidden="true"></i> CONTACT US</a>
+        </div>
+        <% if(user) { %>
+          <div class="cart">
+
+							<button class="w3view-cart" onClick="location.href='/cart'" type="submit"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
+
+					</div>
+
+        <% } %>
+        <div class="clearfix"> </div>
+      </div>
+      <div class="clearfix"> </div>
+    </div>
+  </div><!-- //header-two -->
+  <div class="header-three"><!-- header-three -->
+    <div class="container">
+      <div class="menu">
+        <div class="cd-dropdown-wrapper">
+          <a class="cd-dropdown-trigger" href="#0">Store Categories</a>
+          <nav class="cd-dropdown">
+            <a href="#0" class="cd-close">Close</a>
+            <ul class="cd-dropdown-content">
+              <li><a href="offers.html">Today's Offers</a></li>
+              <% for(var i=0 ; i< categories.length; i++) { %>
+                <li><a href="/products/<%= categories[i]._id%>"><%= categories[i].name %></a></li>
+              <% } %>
+
+              </li>
+              <li><a href="sitemap.html">Full Site Directory </a></li>
+            </ul> <!-- .cd-dropdown-content -->
+          </nav> <!-- .cd-dropdown -->
+        </div> <!-- .cd-dropdown-wrapper -->
+      </div>
+      <div class="move-text">
+        <div class="marquee"><a href="/offers"> New collections are available here...... <span>Get extra 10% off on everything | no extra taxes </span> <span> Try shipping pass free for 15 days with unlimited</span></a></div>
+        <script type="text/javascript" src="/js/jquery.marquee.min.js"></script>
+        <script>
+          $('.marquee').marquee({ pauseOnHover: true });
+          //@ sourceURL=pen.js
+        </script>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- //header -->
